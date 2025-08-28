@@ -1,0 +1,180 @@
+#ATTRIBUTE SELCETOR
+
+1) [attr] – Selects elements with the attribute
+
+input[required] { border: 1px solid red; }
+
+2) [attr="value"] – Exact match
+
+a[target="_blank"] { color: blue; }
+
+3)[attr~="value"] – Contains word (space-separated)
+
+[class~="btn"] { 
+    padding: 10px;
+}
+
+4)[attr^="value"] – Starts with value
+
+a[href^="https"] {
+     color: green;
+}
+
+#COMBINATORS
+
+CSS Combinators define relationships between selectors — how elements are connected in the HTML structure.
+
+Types of Combinators:
+
+1) Descendant ( )
+Selects all elements inside another element (any level deep)
+
+div p { color: red; }  /* All <p> inside <div> */
+
+2) Child (>)
+Selects direct children only
+
+ul > li { list-style: none; }  /* Only direct <li> inside <ul> */
+
+3) Adjacent Sibling (+)
+Selects the next sibling immediately after
+
+h1 + p { margin-top: 0; }  /* <p> immediately after <h1> */
+
+- Only the first <p> right after <h1> gets styled (turned blue).
+
+- The second <p> is not directly after <h1>, so it’s ignored.
+
+4) General Sibling (~)
+Selects all siblings after the element
+
+h1 ~ p { color: blue; }  /* All <p> after <h1> with same parent */
+
+#GROUPING
+
+Grouping in CSS means applying the same styles to multiple selectors at once to avoid repeating code. 
+
+selector1, selector2, selector3 {
+    /* shared styles */
+  }
+  Use a comma (,) to separate selectors.
+  
+  The style block is applied to all listed selectors.
+
+#SPECIFICITY
+
+Specificity is a set of rules CSS uses to decide which style wins when multiple styles target the same element.
+
+🔹 Specificity Levels (from low to high):
+Selector Type	Specificity Value
+Universal *	                                        0,0,0,0 (lowest)
+Element/tag div, p                          	    0,0,0,1
+Class .class	                                    0,0,1,0
+Attribute [type="text"] or pseudo-class :hover	    0,0,1,0
+ID #id	                                            0,1,0,0
+Inline style style=""	                            1,0,0,0 (very high)
+!important	Overrides all (not specificity, but forceful)
+
+#PSUDO CLASSES
+
+A pseudo-class lets you style an element based on its state or position, without needing extra classes or IDs in your HTML.
+
+🔹 Syntax:
+selector:pseudo-class {
+  /* styles */
+}
+
+🔹 Common Examples:
+
+1) :hover — styles when you hover over an element
+
+button:hover {
+    background: blue;
+  }
+
+2):focus — styles when an element is focused (like an input clicked or tabbed to)
+  
+  input:focus {
+    border-color: green;
+  }
+
+3) :active
+
+Applies when an element is being activated by the user, typically when the mouse button is pressed down on it (before releasing).
+
+Useful for styling the "pressed" state of buttons or links.
+
+-code
+button:active {
+  background-color: darkblue;
+} 
+
+
+
+4):first-child — styles an element if it’s the first child of its parent
+  
+  p:first-child {
+    font-weight: bold;
+  }
+
+5) :nth-child(n) — styles the nth child of a parent
+
+li:nth-child(2) {
+  color: red;
+}
+
+
+5) :disabled — styles disabled form elements
+
+input:disabled {
+  background: #eee;
+}
+
+
+#PSUDO ELEMENTS
+
+Pseudo-elements let you style a specific part of an element's content or insert content without changing the HTML.
+
+🔹 Syntax:
+selector::pseudo-element {
+  /* styles */
+}
+
+
+Note: Double colons :: are the modern standard (single : also works but is older).
+
+🔹 Common Pseudo-elements:
+
+::before
+Inserts content before the element’s actual content.
+
+p::before {
+  content: "Note: ";
+  font-weight: bold;
+}
+
+
+::after
+Inserts content after the element’s content.
+
+p::after {
+  content: " ✔";
+  color: green;
+}
+
+
+::first-letter
+Styles the first letter of the element.
+
+p::first-letter {
+  font-size: 200%;
+  color: red;
+}
+
+
+::first-line
+Styles the first line of text inside an element.
+
+p::first-line {
+  font-weight: bold;
+}
