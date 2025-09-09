@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <style>
+        .container {
+  display: flex;
+  /* flex-direction:row; */
+  border: 2px solid #333;
+  /* flex-wrap: wrap; */
+  /* flex-flow: row wrap; */
+  /* justify-content: space-evenly; */
+  gap: 5.5px;
+ 
+ align-items: center;
+
+  margin: 38px;
+  height: 200px; /* useful for vertical alignment demos */
+ 
+}
+
+.item {
+  background: lightblue;
+  width: 200px;
+  border: 1px solid #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+.item:nth-child(2) {
+  order: 3;
+}
+.item:nth-child(3) {
+  order: 1;
+}
+.item:nth-child(2) {
+  flex-grow: 1;
+  
+}
+.item:nth-child(2) {
+  flex-basis: 300px;
+}
+.item:nth-child(2) {
+  flex-shrink:10; /* shrinks twice as fast */
+}
+
+.item:nth-child(2) {
+  flex: 1 1 200px; /* grow | shrink | basis */
+}
+
+
+
+.item:nth-child(2) {
+  align-self: flex-end;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">10</div>
+       
+      </div>
+               
+</body>
+</html>
