@@ -115,3 +115,23 @@ setTimeout(()=>console.log("hellow"),2000);
 console.log(60);
 
 
+let count = 1;
+const timer = setInterval(()=>{console.log("hi" + count);
+    count++;
+    if(count>1){
+        clearInterval(timer);
+    }
+},1000);
+
+//bomb interval
+let cnt = 1;
+const bomb = setInterval(()=>{
+    console.log("bomb will explode in " + (6 - cnt) + " seconds");
+    cnt++;
+    if(cnt>6){
+        console.log("bomb exploded");
+        clearInterval(bomb);
+    }
+},1000);
+
+
