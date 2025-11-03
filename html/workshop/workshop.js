@@ -100,3 +100,18 @@ const arr2=[...arr1,40,50,60];
 console.log(arr2);
 
 
+
+const name1="bhavya";
+const age1=21;
+const person1={...{name1,age1},city:"pune"};
+console.log(person1);
+
+
+//timeout
+console.log(20);
+console.log(30);
+console.log(40);
+setTimeout(()=>console.log("hellow"),2000);
+console.log(60);
+
+
