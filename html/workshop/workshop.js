@@ -76,3 +76,15 @@ console.log(secondFruit);
 const number1=[1,2,3,4,5,6,7,8,9];
 const [,second, , ,fifth]=number1;
 console.log(second,fifth);
+
+
+//destructuring object
+const n={
+    name:"kapil",
+    city:"mumbai"
+};
+const {name:personName,city:jgha}=n;
+console.log(jgha);
+
+//rest parameter
+
