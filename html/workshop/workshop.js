@@ -86,5 +86,17 @@ const n={
 const {name:personName,city:jgha}=n;
 console.log(jgha);
 
-//rest parameter
+
+//rest operator ( always at right most side )
+const arr=[1,2,3,4,5,6,7,8,9];
+const [first,second1,...rest]=arr; 
+console.log(first);
+console.log(second1);
+console.log(rest);
+
+//spread operator
+const arr1=[10,20,30];
+const arr2=[...arr1,40,50,60];
+console.log(arr2);
+
 
