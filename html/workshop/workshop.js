@@ -55,6 +55,24 @@ person.games=["cricket","chess","football"];
 console.log(person);
 
 //practice 
-person.who=(`i am ${person.name} from ${person.city} and i was born in ${2025-person.age}`);
-console.log(person.who);
+person.who=function(){
+    console.log(`i am ${this.name} from ${this.city} and i was born in ${2025-this.age}`);
+};
+console.log(person);
+person.who();
 
+
+//delete property
+delete person.city;
+console.log(person);
+
+//red paramter , destructuring , spread operator
+const fruit=["apple","banana","mango","grapes"];
+const [firstFruit, , secondFruit] = fruit;
+console.log(firstFruit);
+console.log(secondFruit);
+
+//practice
+const number1=[1,2,3,4,5,6,7,8,9];
+const [,second, , ,fifth]=number1;
+console.log(second,fifth);
