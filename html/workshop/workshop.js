@@ -34,3 +34,27 @@ const user="aman";
 const points=120;
 console.log(`hey ${user} , you have ${points} points!`);
 
+
+const person={
+    name:"rohit",
+    age:22,
+    city:"delhi",
+    intro:function(){
+        console.log(`hey my name is ${this.name}, i am ${this.age} years old and i live in ${this.city}.`);
+    }
+};
+console.log(person.name);
+console.log(person.age);
+person.intro();
+
+//. direct same key search krta h futher more bracket notation ham third varibale ke through access kr skte hai
+const hisage="age";
+console.log(person[hisage]);
+
+person.games=["cricket","chess","football"];
+console.log(person);
+
+//practice 
+person.who=(`i am ${person.name} from ${person.city} and i was born in ${2025-person.age}`);
+console.log(person.who);
+
