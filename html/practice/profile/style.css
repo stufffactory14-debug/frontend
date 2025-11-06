@@ -1,0 +1,33 @@
+:root{ --card-padding:16px; --radius:12px; --transition:200ms ease; }
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#f3f4f6; margin:0; padding:24px; color:#111}
+.wrap{max-width:980px; margin:0 auto; display:grid; grid-template-columns: 1fr 380px; gap:20px; align-items:start}
+.studio{background:#fff; padding:20px; border-radius:12px; box-shadow: 0 6px 18px rgba(16,24,40,0.06);} 
+header h1{margin:0 0 12px 0; font-size:20px}
+#profileCard{padding:var(--card-padding); border-radius:var(--radius); background:linear-gradient(180deg,#ffffff,#fbfdff); box-shadow:0 8px 20px rgba(2,6,23,0.06); display:flex; gap:14px; align-items:flex-start}
+#avatar{width:96px; height:96px; border-radius:10px; object-fit:cover; background:linear-gradient(90deg,#eee,#ddd)}
+.meta{flex:1}
+.name{font-size:20px; margin:0 0 4px 0}
+.role{margin:0 0 8px 0; color:#374151}
+.bio{margin:0 0 12px 0; white-space:pre-wrap}
+.skills{display:flex; gap:8px; flex-wrap:wrap}
+.skill{background:#eef2ff; padding:6px 8px; border-radius:999px; display:inline-flex; align-items:center; gap:8px; font-size:13px}
+.skill .remove{cursor:pointer; border:none; background:none; font-weight:700}
+.details{margin-top:10px; padding:10px; border-radius:8px; background:#f8fafc}
+.hidden{display:none !important}
+.panel{background:#fff; padding:16px; border-radius:12px}
+.field{display:flex; flex-direction:column; gap:6px; margin-bottom:12px}
+input[type="text"], textarea{padding:8px;border-radius:8px;border:1px solid #d1d5db; font-size:14px}
+.controls-row{display:flex; gap:8px; align-items:center}
+.theme-btn{padding:8px 10px;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.theme-btn.active{outline:2px solid rgba(0,0,0,0.08); transform:translateY(-1px)}
+.theme-blue{background: linear-gradient(180deg,#eff8ff,#e6f2ff)}
+.theme-green{background: linear-gradient(180deg,#f3fef6,#ecfff0)}
+.theme-peach{background: linear-gradient(180deg,#fff7f2,#fff0e8)}
+.theme-dark{background: linear-gradient(180deg,#0f1724,#071226); color:#fff}
+.invalid-name{outline:2px solid #fca5a5}
+@keyframes popin { from { transform:scale(.85); opacity:0 } to { transform:scale(1); opacity:1 } }
+.pop { animation: popin 260ms ease; }
+.muted{color:#6b7280; font-size:13px}
+button{cursor:pointer}
+.error{color:#b91c1c; font-size:13px}
+@media (max-width:900px){ .wrap{grid-template-columns:1fr; padding-bottom:40px} }
