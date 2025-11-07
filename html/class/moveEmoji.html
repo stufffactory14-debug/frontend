@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="emoji" style="font-size:60px; position:absolute; top:100px; left:100px;">😎</div>
+
+<script>
+let x = 100, y = 100;
+const emoji = document.getElementById('emoji');
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowUp') y -= 50;
+  if (e.key === 'ArrowDown') y += 50;
+  if (e.key === 'ArrowLeft') x -= 50;
+  if (e.key === 'ArrowRight') x += 50;
+  emoji.style.top = y + 'px';
+  emoji.style.left = x + 'px';
+});
+</script>
+
+
+</body>
+</html>
