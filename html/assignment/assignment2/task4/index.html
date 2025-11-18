@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    input {
+      display: block;
+      margin-bottom: 5px;
+      padding: 8px;
+      width: 300px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .valid {
+      border-color: green;
+    }
+
+    .invalid {
+      border-color: red;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>📝 Registration Form</h2>
+  <form id="regForm">
+    <label>Name:</label>
+    <input type="text" id="name">
+    <div class="error" id="nameError"></div>
+
+    <label>Email:</label>
+    <input type="email" id="email">
+    <div class="error" id="emailError"></div>
+
+    <label>Password:</label>
+    <input type="password" id="password">
+    <div class="error" id="passwordError"></div>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <script>
+    const form = document.getElementById('regForm');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+
+    const nameError = document.getElementById('nameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
+      let valid = true;
+
+      
+      if (name.value.trim() === "") {
+        nameError.textContent = "Name required!";
+        name.classList.add('invalid');
+        name.classList.remove('valid');
+        valid = false;
+      } else {
+        nameError.textContent = "";
+        name.classList.add('valid');
+        name.classList.remove('invalid');
+      }
+
+      if (email.value.trim() === "" || !email.value.includes('@')) {
+        emailError.textContent = "Valid email chahiye '@' ke saath!";
+        email.classList.add('invalid');
+        email.classList.remove('valid');
+        valid = false;
+      } else {
+        emailError.textContent = "";
+        email.classList.add('valid');
+        email.classList.remove('invalid');
+      }
+
+      
+      if (password.value.length < 8) {
+        passwordError.textContent = "Password kam se kam 8 characters ka hona chahiye!";
+        password.classList.add('invalid');
+        password.classList.remove('valid');
+        valid = false;
+      } else {
+        passwordError.textContent = "";
+        password.classList.add('valid');
+        password.classList.remove('invalid');
+      }
+
+      if (valid) {
+        alert("🎉 Registration successful!");
+        form.reset();
+        name.classList.remove('valid');
+        email.classList.remove('valid');
+        password.classList.remove('valid');
+      }
+    });
+  </script>
+
+</body>
+</html>
