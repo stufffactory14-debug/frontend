@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Random Joke Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    #jokeBox {
+      margin-top: 20px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    #nextBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1> Random Joke Generator</h1>
+
+  <div id="jokeBox">
+    Click the button to get a joke!
+  </div>
+
+  <button id="nextBtn">Next Joke</button>
+
+  <script>
+    const jokeBox = document.getElementById("jokeBox");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function getJoke() {
+      nextBtn.disabled = true;
+      nextBtn.textContent = "Loading...";
+
+      fetch("https://official-joke-api.appspot.com/random_joke")
+        .then(response => response.json())
+        .then(data => {
+          jokeBox.innerHTML = `${data.setup} <br><br> ${data.punchline}`;
+        })
+        .catch(error => {
+          jokeBox.textContent = " Failed to fetch joke. Please try again!";
+        })
+        .finally(() => {
+          nextBtn.disabled = false;
+          nextBtn.textContent = "Next Joke";
+        });
+    }
+
+    nextBtn.addEventListener("click", getJoke);
+  </script>
+
+</body>
+</html>
