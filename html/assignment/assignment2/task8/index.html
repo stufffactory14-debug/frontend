@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Loader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    #posts {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+    li {
+      margin: 8px;
+      font-size: 20px;
+    }
+    #retryBtn {
+      padding: 8px 18px;
+      margin-top: 20px;
+      font-size: 18px;
+      display: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Blog Post Loader</h1>
+  <p id="message"></p>
+  <ul id="posts"></ul>
+  <button id="retryBtn">Retry</button>
+
+  <script>
+    const message = document.getElementById("message");
+    const postsList = document.getElementById("posts");
+    const retryBtn = document.getElementById("retryBtn");
+
+    function loadPostsPromise() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (Math.random() < 0.3) {
+            reject("Failed to load posts");
+          } else {
+            resolve([
+              "Understanding JavaScript Closures",
+              "How to Learn Web Development Fast",
+              "Mastering Async/Await",
+              "What Is the DOM in JavaScript?",
+              "Best Tips for Frontend Projects"
+            ]);
+          }
+        }, 2000);
+      });
+    }
+
+    async function loadPosts() {
+      message.textContent = "Loading posts...";
+      postsList.innerHTML = "";
+      retryBtn.style.display = "none";
+
+      try {
+        const posts = await loadPostsPromise();
+        message.textContent = "Posts Loaded:";
+        posts.forEach(title => {
+          const li = document.createElement("li");
+          li.textContent = title;
+          postsList.appendChild(li);
+        });
+      } catch (error) {
+        message.textContent = error;
+        retryBtn.style.display = "inline-block";
+      }
+    }
+
+    retryBtn.addEventListener("click", loadPosts);
+    loadPosts();
+  </script>
+
+</body>
+</html>
